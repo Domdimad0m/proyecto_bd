@@ -55,4 +55,5 @@ Y así poder informar toma de decisiones sobre:
 >- Horarios de vigilancia policial
 >- Campañas de concientización dirigidas
 
+### Implicaciones éticas:
 Aunque estos datos son muy valiosos, es importante considerar algunas implicaciones éticas como la privacidad de los involucrados (pues, aunque no hay detalles de los individuos, los registros individuales podrían permitir su identificación indirecta), la posible estigmatización de zonas por tener mayores siniestros e incluso el uso por aseguradoras para no cubrir todos los gastos de un accidente en ciertas zonas.
