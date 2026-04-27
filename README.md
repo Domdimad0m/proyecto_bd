@@ -43,6 +43,20 @@ El conjunto de datos contiene 215,079 registros anuales con 26 atributos que des
 >- hora_evento
 >- fecha_captura
 
+### Esqueleto 
+
+```
+├── README.md                                         <- Documentación para desarrolladores de este proyecto (i.e., reporte escrito)
+├── data
+│   ├── .gitignore
+│   └── raw_data.csv                                  <- Datos en formato CSV como vienen de la fuente original
+│
+├── datos/
+│   └── nuevo_acumulado_hechos_de_transito_2023_12.sql
+│
+└── exploration_queries 
+```
+
 
 Utilizaremos este dataset para identificar zonas de alto riesgo vial en la CDMX mediante análisis geoespacial y temporal. Específicamente buscaremos:
 >- Puntos críticos (calles/intersecciones con mayor incidencia)
@@ -56,3 +70,27 @@ Y así poder informar toma de decisiones sobre:
 >- Campañas de concientización dirigidas
 
 Aunque estos datos son muy valiosos, es importante considerar algunas implicaciones éticas como la privacidad de los involucrados (pues, aunque no hay detalles de los individuos, los registros individuales podrían permitir su identificación indirecta), la posible estigmatización de zonas por tener mayores siniestros e incluso el uso por aseguradoras para no cubrir todos los gastos de un accidente en ciertas zonas.
+
+
+### Carga Inicial
+---
+Con el fin de faciliar la inserción de los datos a psql convertimos el csv de datos inicial de la página 'https://datos.cdmx.gob.mx/dataset/hechos-de-transito-reportados-por-ssc-base-ampliada-no-comparativa' convertimos el csv a formato sql el cual puedes descargar
+
+> [➥ Descargar archivo SQL](datos/nuevo_acumulado_hechos_de_transito_2023_12.sql)
+
+Para crear la base de datos ejecutamos el siguiente código en **psql**:
+```{psql}
+CREATE DATABASE vialcdmx;
+```
+Para entrar a cargar los elementos a la base de datos creada:
+```{psql}
+ \c vialcdmx;
+```
+Para cargar los datos de la página original:
+```{psql}
+\i "nuevo_acumulado_hechos_de_transito_2023_12.sql"
+```
+
+
+### Limpieza de datos
+---
